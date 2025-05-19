@@ -13,8 +13,8 @@ RUN apt-get update && apt-get install -y \
 
 # 安装 Python 依赖
 COPY requirements.txt /workspace/requirements.txt
-RUN pip install --no-cache-dir --upgrade pip -i https://mirrors.cloud.tencent.com/pypi/simple && \
-    pip install --no-cache-dir -i https://mirrors.cloud.tencent.com/pypi/simple -r requirements.txt
+RUN pip install --no-cache-dir --upgrade pip -i https://mirrors.volces.com/pypi/simple/ && \
+    pip install --no-cache-dir -i https://mirrors.volces.com/pypi/simple/ -r requirements.txt
 
 ENV version=0.8.5.2
 
