@@ -16,6 +16,7 @@ COPY requirements.txt /workspace/requirements.txt
 RUN pip install --no-cache-dir --upgrade pip -i https://mirrors.volces.com/pypi/simple/ && \
     pip install --no-cache-dir -i https://mirrors.volces.com/pypi/simple/ -r requirements.txt
 
+# 镜像版本号
 ENV version=0.8.5.2
 
 # 设置 vLLM 服务端口
