@@ -13,8 +13,8 @@ RUN apt-get update && apt-get install -y \
 
 # 安装 Python 依赖
 COPY requirements.txt /workspace/requirements.txt
-RUN pip install --no-cache-dir --upgrade pip -i https://pypi.tuna.tsinghua.edu.cn/simple && \
-    pip install --no-cache-dir --retries 5 -i https://pypi.tuna.tsinghua.edu.cn/simple -r requirements.txt
+RUN pip install --no-cache-dir --upgrade pip -i http://mirrors.aliyun.com/pypi/simple/ && \
+    pip install --no-cache-dir -i http://mirrors.aliyun.com/pypi/simple/ -r requirements.txt
 
 # 镜像版本号
 ENV version=0.8.5.2
