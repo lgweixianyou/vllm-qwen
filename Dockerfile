@@ -16,5 +16,7 @@ COPY requirements.txt /workspace/requirements.txt
 RUN pip install --no-cache-dir --upgrade pip -i https://mirrors.cloud.tencent.com/pypi/simple && \
     pip install --no-cache-dir -i https://mirrors.cloud.tencent.com/pypi/simple -r requirements.txt
 
+ENV version=0.8.5.2
+
 # 设置 vLLM 服务端口
 EXPOSE 8000
