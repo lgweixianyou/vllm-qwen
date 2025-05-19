@@ -1,5 +1,8 @@
 FROM lvguangai-gpu-cn-beijing.cr.volces.com/lvguangai/python:3.10
 
+# 镜像版本号
+ENV VERSION=0.8.5.2
+
 # 更新 apt 源，将来有需要时可以重新启用
 RUN sed -i s@/deb.debian.org/@/mirrors.cloud.tencent.com/@g /etc/apt/sources.list.d/debian.sources
 
@@ -15,9 +18,6 @@ RUN apt-get update && apt-get install -y \
 COPY requirements.txt /workspace/requirements.txt
 RUN pip install --no-cache-dir --upgrade pip -i https://mirrors.ivolces.com/pypi/simple/ && \
     pip install --no-cache-dir -i https://mirrors.ivolces.com/pypi/simple/ -r requirements.txt
-
-# 镜像版本号
-ENV version=0.8.5.2
 
 # 设置 vLLM 服务端口
 EXPOSE 8000
