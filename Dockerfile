@@ -1,7 +1,7 @@
 FROM lvguangai-gpu-cn-beijing.cr.volces.com/lvguangai/python:3.10
 
 # 镜像版本号
-ENV VERSION=0.8.5.2
+ENV VERSION=0.9.0.1
 
 # 更新 apt 源，将来有需要时可以重新启用
 RUN sed -i s@/deb.debian.org/@/mirrors.cloud.tencent.com/@g /etc/apt/sources.list.d/debian.sources
