@@ -1,4 +1,4 @@
-FROM lvguangai-gpu-cn-beijing.cr.volces.com/lvguangai/python:3.10
+FROM lvguangai-cn-beijing.cr.volces.com/library/python:3.10
 
 # 镜像版本号
 ENV VERSION=0.9.0.1
