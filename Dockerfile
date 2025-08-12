@@ -1,7 +1,7 @@
-FROM lvguangai-cn-beijing.cr.volces.com/library/python:3.10
+FROM python:3.10
 
 # 镜像版本号
-ENV VERSION=0.9.0.1
+ENV VERSION=0.9.2.1
 
 # 更新 apt 源，将来有需要时可以重新启用
 RUN sed -i s@/deb.debian.org/@/mirrors.cloud.tencent.com/@g /etc/apt/sources.list.d/debian.sources
