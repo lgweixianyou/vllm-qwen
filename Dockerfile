@@ -16,8 +16,8 @@ RUN apt-get update && apt-get install -y \
 
 # 安装 Python 依赖
 COPY requirements.txt /workspace/requirements.txt
-RUN pip install --no-cache-dir --upgrade pip -i https://mirrors.ivolces.com/pypi/simple/ && \
-    pip install --no-cache-dir -i https://mirrors.ivolces.com/pypi/simple/ -r requirements.txt
+RUN pip install --no-cache-dir --upgrade pip -i https://mirrors.tencentyun.com/pypi/simple/ && \
+    pip install --no-cache-dir -i https://mirrors.tencentyun.com/pypi/simple/ -r requirements.txt
 
 # 设置 vLLM 服务端口
 EXPOSE 8000
