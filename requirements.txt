@@ -1,4 +1,4 @@
-vllm==0.14.1
+vllm==0.15.0
 qwen-vl-utils
 accelerate
 transformers
