@@ -1,4 +1,0 @@
-vllm==0.15.0
-qwen-vl-utils
-accelerate
-transformers
