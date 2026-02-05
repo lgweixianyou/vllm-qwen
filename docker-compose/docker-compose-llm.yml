@@ -1,0 +1,36 @@
+services:
+  qwen3-biz-01:
+    container_name: qwen3-biz-01
+    image: mirrors-sspedu.tencentcloudcr.com/lvguang/vllm-qwen:0.15.1.0-vllm-openai
+    restart: unless-stopped
+    runtime: nvidia
+    shm_size: "16g"
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=0,1,2,3
+      - NVIDIA_DRIVER_CAPABILITIES=compute,utility
+      - LLM_API_KEY=${LLM_API_KEY}
+    volumes:
+      - /data/modelscope/models/Qwen/Qwen3-235B-A22B-Instruct-2507-FP8:/model:ro
+    ports: [ "3389:8000" ]
+    command: >
+      /model
+      --port 8000
+      --served-model-name Qwen3-235B-A22B-Instruct-2507-FP8
+      --tensor_parallel_size 4
+      --max-model-len 64000
+      --max-num-seqs 30
+      --api-key ${LLM_API_KEY}
+      --gpu-memory-utilization 0.85
+      --enable-auto-tool-choice
+      --tool-call-parser hermes
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100m"
+        max-file: "30"
+    healthcheck:
+      test: [ "CMD", "python", "-c", "import os,urllib.request;urllib.request.urlopen(f'http://127.0.0.1:8000/health')" ]
+      interval: 15s       # 每 15 秒检查一次
+      timeout: 5s         # 请求超时 5 秒
+      retries: 20          # 连续 5 次失败才判定为 unhealthy
+      start_period: 300s   # 容器启动后 30 秒再开始检测
