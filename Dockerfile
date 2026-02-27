@@ -1,8 +1,8 @@
-# 1️⃣ 定义构建参数（默认版本可选）
+# 定义构建参数（默认版本可选）
 ARG VLLM_VERSION=nightly
 
 # 使用官方 x86_64 优化镜像，内置了 CUDA 12.x 和 vLLM 核心算子
-FROM vllm/vllm-openai:v0.16.0-x86_64
+FROM vllm/vllm-openai:${VLLM_VERSION}
 
 # 1. 切换至 root 权限进行系统安装（vLLM 镜像默认通常也是 root）
 USER root
