@@ -20,7 +20,7 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 # 强制升级 transformers 和 accelerate 以支持最新的 Qwen2.5-VL 等模型
 # 同时安装 qwen-vl-utils 处理多模态输入
 RUN pip install --no-cache-dir -i https://mirrors.tencentyun.com/pypi/simple/ --upgrade pip && \
-    pip install --no-cache-dir -i https://mirrors.tencentyun.com/pypi/simple/ \
+    pip install -U --no-cache-dir -i https://mirrors.tencentyun.com/pypi/simple/ \
     qwen-vl-utils \
     transformers \
     accelerate
